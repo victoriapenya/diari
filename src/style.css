@@ -1,0 +1,186 @@
+:root {
+  --bg: #fdfcf9;
+  --surface: #ffffff;
+  --text: #1f1d1a;
+  --muted: #6b665e;
+  --border: #ddd8cf;
+  --accent: #2f5d8a;
+  --danger: #a3302a;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 16rem) 1fr;
+  gap: 2rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+@media (max-width: 40rem) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    order: 2;
+  }
+}
+
+button {
+  font: inherit;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.day-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.day-picker input {
+  font: inherit;
+  padding: 0.3rem;
+}
+
+.day-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.day-header h1 {
+  font-size: 1.5rem;
+  margin: 1.25rem 0 0.75rem;
+}
+
+.save-status {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.save-status[data-state='error'] {
+  color: var(--danger);
+}
+
+.empty-state {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.entries {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.entry-time {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.entry-delete {
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.entry-text {
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  resize: vertical;
+}
+
+.new-entry {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.days-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.days-list a {
+  color: var(--accent);
+}
+
+.days-list a[aria-current] {
+  font-weight: 600;
+}
+
+.days-count,
+.days-empty {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

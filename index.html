@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diari</title>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar" aria-labelledby="days-title">
+        <h2 id="days-title">Dies amb entrades</h2>
+        <p class="days-empty" data-days-empty hidden>Encara no hi ha cap dia amb entrades.</p>
+        <ul class="days-list" data-days-list></ul>
+      </aside>
+
+      <main class="day">
+        <nav class="day-nav" aria-label="Navegació entre dies">
+          <button type="button" data-prev>Dia anterior</button>
+          <button type="button" data-today>Avui</button>
+          <button type="button" data-next>Dia següent</button>
+          <label class="day-picker">
+            <span class="visually-hidden">Tria un dia</span>
+            <input type="date" data-picker />
+          </label>
+        </nav>
+
+        <header class="day-header">
+          <h1 data-day-title></h1>
+          <p class="save-status" data-save-status role="status" aria-live="polite"></p>
+        </header>
+
+        <p class="empty-state" data-empty-state hidden>Encara no has escrit res aquest dia</p>
+        <ol class="entries" data-entries></ol>
+
+        <button type="button" class="new-entry" data-new-entry>Nova entrada</button>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
